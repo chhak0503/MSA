@@ -1,0 +1,32 @@
+spring:
+    application:
+        name: spring-cloud-oauth2-test
+
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/studydb
+        username: root
+        password: 1234
+
+    jpa:
+        database: mysql
+        hibernate:
+            ddl-auto: update
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                format_sql: true
+                show_sql: true
+
+    security:
+        oauth2:
+            client:
+                registration:
+                    google:
+                        client-id: 66954651597-9n2m1rbkcvuh1hdlva2a912dfo51tg9p.apps.googleusercontent.com
+                        client-secret: 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
+                        redirect-uri: http://localhost:8080/login/oauth2/code/google
+                        scope:
+                          - email
+                          - profile
